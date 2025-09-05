@@ -54,7 +54,7 @@
   .gs-header{
     position: relative; color: white; text-align: center;
     padding: 96px 20px; margin: -20px -20px 0 -20px; overflow: hidden;
-    min-height: 72vh; /* ↑ Aumenta la altura del hero */
+    min-height: 72vh; /* altura del hero */
   }
   .gs-hero-bg{ position:absolute; inset:0; z-index:0; }
   .gs-hero-bg img{
@@ -106,7 +106,6 @@
   .gs-team-highlights{
     display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:3rem; justify-items:center;
   }
-  .gs-team-highlights .gs-highlight-item:nth-child(4){ grid-column: 2 / 3; }
   .gs-highlight-item{ background:white; padding:2rem; border:1px solid #e8f2ec; text-align:center; position:relative; transition:all .3s ease; }
   .gs-highlight-item:hover{ box-shadow:0 5px 20px rgba(27,67,50,.1); transform:translateY(-2px); }
   .gs-highlight-item::before{ content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:#2d5a3d; }
@@ -216,6 +215,7 @@
 <!-- ===== HEADER (con fondo de carrusel) ===== -->
 <header id="inicio" class="gs-header">
   <div class="gs-hero-bg" aria-hidden="true">
+    <!-- Imágenes desde Google Drive (asegura “Cualquiera con el enlace”) -->
     <img referrerpolicy="no-referrer" data-drive-id="101-TMmVzQSdmJ-Z9mSQPHP3quFGCNwrp" alt="" />
     <img referrerpolicy="no-referrer" data-drive-id="1amoLZ92OaAIwXVXmNzdFNS6vlHSYAuHa" alt="" />
     <img referrerpolicy="no-referrer" data-drive-id="15n6w-kvWBSw9QuyZTRES3Bw8DRcoEh4H" alt="" />
@@ -260,24 +260,26 @@
   <div class="gs-container">
     <h2 class="gs-section-title">Nuestro Equipo Consultor</h2>
     <div class="gs-team-description">
-      <p>Green Solutions es un equipo multidisciplinario integrado por profesionales con maestrías y especializaciones en áreas de vanguardia del sector agrícola y ambiental. Nuestras competencias técnicas están respaldadas por formación continua en las últimas tendencias y tecnologías del sector, desarrollando soluciones adaptadas a las necesidades reales del sector productivo actual.</p>
+      <p>
+        Green Solutions es un equipo multidisciplinario de profesionales especializados en áreas clave del
+        sector agrícola y ambiental. Combinamos rigor científico y experiencia de campo para diseñar
+        soluciones aplicadas y medibles. Nuestras competencias técnicas y científicas se sostienen en
+        formación continua y en la adopción de tecnologías de vanguardia, lo que nos permite responder con
+        eficacia a las necesidades reales del sector productivo actual.
+      </p>
 
       <div class="gs-team-highlights">
         <div class="gs-highlight-item">
-          <h4>Formación Especializada</h4>
-          <p>Maestrías y especializaciones en áreas de vanguardia del sector agrícola</p>
-        </div>
-        <div class="gs-highlight-item">
           <h4>Equipo Multidisciplinario</h4>
-          <p>Profesionales de diversas especialidades trabajando de forma integrada</p>
+          <p>Profesionales de diversas especialidades trabajando de forma integrada.</p>
         </div>
         <div class="gs-highlight-item">
           <h4>Actualización Constante</h4>
-          <p>Formación continua en las últimas tendencias y tecnologías del sector</p>
+          <p>Formación continua en las últimas tendencias y tecnologías del sector.</p>
         </div>
         <div class="gs-highlight-item">
           <h4>Orientación al Mercado</h4>
-          <p>Soluciones adaptadas a las necesidades reales del sector productivo</p>
+          <p>Soluciones adaptadas a las necesidades reales del sector productivo.</p>
         </div>
       </div>
     </div>
@@ -488,6 +490,7 @@
     toggle.setAttribute('aria-expanded', 'false');
   }));
 
+  // Resaltado del enlace activo por sección
   const sections = document.querySelectorAll('header#inicio, section[id]');
   const byHref = {}; links.forEach(a => { byHref[a.getAttribute('href')] = a; });
   const io = new IntersectionObserver((entries) => {
