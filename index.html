@@ -12,14 +12,13 @@
   *{ margin:0; padding:0; box-sizing:border-box; }
   body{ font-family:'Google Sans','Roboto',Arial,sans-serif; line-height:1.6; color:#2c3e50; background:#fff; }
   .gs-container{ max-width:1200px; margin:0 auto; padding:0 20px; }
-  /* Para que los anclajes no queden debajo del menú sticky */
   header#inicio, section[id]{ scroll-margin-top: calc(var(--nav-h) + 12px); }
 
   /* ===== TOP NAV (MENÚ) ===== */
   .gs-topnav{
     position:sticky; top:0; z-index:1000;
     backdrop-filter: blur(10px);
-    background: rgba(13,40,24,.30); /* verde oscuro translúcido */
+    background: rgba(13,40,24,.30);
     border-bottom:1px solid rgba(255,255,255,.12);
   }
   .gs-topnav.is-scrolled{
@@ -30,23 +29,16 @@
     height:var(--nav-h);
     display:flex; align-items:center; justify-content:space-between;
   }
-  .brand{
-    color:#fff; text-decoration:none; font-weight:700; letter-spacing:.3px;
-  }
+  .brand{ color:#fff; text-decoration:none; font-weight:700; letter-spacing:.3px; }
   .nav-toggle{
     display:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,.35);
     padding:8px 12px; border-radius:10px; cursor:pointer;
   }
-  .menu{
-    list-style:none; display:flex; gap:18px;
-  }
-  .menu a{
-    color:#fff; text-decoration:none; opacity:.9; padding:8px 10px; border-radius:8px;
-  }
+  .menu{ list-style:none; display:flex; gap:18px; }
+  .menu a{ color:#fff; text-decoration:none; opacity:.9; padding:8px 10px; border-radius:8px; }
   .menu a:hover{ opacity:1; background:rgba(255,255,255,.08); }
   .menu a.active{ background:#2d5a3d; opacity:1; }
 
-  /* Responsive menú */
   @media (max-width: 880px){
     .nav-toggle{ display:block; }
     .menu{
@@ -62,6 +54,7 @@
   .gs-header{
     position: relative; color: white; text-align: center;
     padding: 96px 20px; margin: -20px -20px 0 -20px; overflow: hidden;
+    min-height: 72vh; /* ↑ Aumenta la altura del hero */
   }
   .gs-hero-bg{ position:absolute; inset:0; z-index:0; }
   .gs-hero-bg img{
@@ -70,7 +63,6 @@
     filter:saturate(1.05);
   }
   .gs-hero-bg img.is-active{ opacity:1; }
-  /* Overlay verde translúcido */
   .gs-header::before{
     content:''; position:absolute; inset:0; z-index:1;
     background: linear-gradient(135deg, rgba(27,67,50,0.45), rgba(45,90,61,0.45));
@@ -224,7 +216,6 @@
 <!-- ===== HEADER (con fondo de carrusel) ===== -->
 <header id="inicio" class="gs-header">
   <div class="gs-hero-bg" aria-hidden="true">
-    <!-- Imágenes desde Google Drive (asegura “Cualquiera con el enlace”) -->
     <img referrerpolicy="no-referrer" data-drive-id="101-TMmVzQSdmJ-Z9mSQPHP3quFGCNwrp" alt="" />
     <img referrerpolicy="no-referrer" data-drive-id="1amoLZ92OaAIwXVXmNzdFNS6vlHSYAuHa" alt="" />
     <img referrerpolicy="no-referrer" data-drive-id="15n6w-kvWBSw9QuyZTRES3Bw8DRcoEh4H" alt="" />
@@ -299,37 +290,41 @@
     <h2 class="gs-section-title">Nuestros Servicios</h2>
 
     <div class="gs-services-columns" role="list">
+      <!-- Columna 1 -->
       <div class="gs-service-col" role="listitem">
         <h3>Estudios Técnicos Especializados</h3>
         <ul>
           <li><strong>Estudios Hidrogeológicos</strong><p>Disponibilidad y dinámica del agua subterránea para proyectos agrícolas, industriales o comunitarios.</p></li>
           <li><strong>Calidad de Agua</strong><p>Análisis físico-químico y microbiológico para riego o consumo.</p></li>
           <li><strong>Estudios de Suelos</strong><p>Diagnóstico de propiedades físicas, químicas y biológicas.</p></li>
-          <li><strong>Fertilidad de Suelos</strong><p>Uso sostenible y productivo del suelo.</p></li>
+          <!-- Eliminado: Fertilidad de Suelos -->
         </ul>
       </div>
 
+      <!-- Columna 2 -->
       <div class="gs-service-col" role="listitem">
         <h3>Agricultura de Precisión</h3>
         <ul>
           <li><strong>Planes de Fertilización Avanzada</strong><p>Curvas de absorción de nutrientes por etapa fenológica y fertirriego automatizado.</p></li>
-          <li><strong>Agricultura Controlada</strong><p>Monitoreo en tiempo real de variables ambientales y sistemas de control automatizado.</p></li>
+          <!-- Eliminado: Agricultura Controlada -->
           <li><strong>Fotogrametría y Teledetección</strong><p>Drones para mapeo NDVI, análisis multitemporales y detección de estrés hídrico.</p></li>
           <li><strong>SIG Especializado</strong><p>Modelos digitales de alta precisión y cartografía de variabilidad espacial.</p></li>
           <li><strong>Agricultura Regenerativa</strong><p>Capacitaciones en salud del suelo, secuestro de carbono y prácticas sostenibles.</p></li>
         </ul>
       </div>
 
+      <!-- Columna 3 -->
       <div class="gs-service-col" role="listitem">
         <h3>Certificación Agrícola</h3>
         <ul>
           <li><strong>Certificaciones Internacionales</strong><p>BPA, GlobalG.A.P., Rainforest Alliance, Fairtrade, UTZ Certified.</p></li>
           <li><strong>Inocuidad Alimentaria HACCP</strong><p>Implementación de sistemas HACCP y diseño de plantas empacadoras certificadas.</p></li>
-          <li><strong>Trazabilidad Completa</strong><p>Sistemas digitales de rastreo desde campo hasta consumidor final.</p></li>
+          <!-- Eliminado: Trazabilidad Completa -->
           <li><strong>Capacitación Sostenible</strong><p>Programas formativos en agricultura regenerativa y prácticas ambientalmente responsables.</p></li>
         </ul>
       </div>
 
+      <!-- Columna 4 -->
       <div class="gs-service-col" role="listitem">
         <h3>Gestión Ambiental</h3>
         <ul>
@@ -470,7 +465,7 @@
 
 <!-- ===== SCRIPTS ===== -->
 <script>
-/* Menú: toggle móvil + cambio de fondo al hacer scroll + enlace activo */
+/* Menú: toggle móvil + fondo al hacer scroll + enlace activo */
 (function(){
   const nav = document.querySelector('.gs-topnav');
   const toggle = document.querySelector('.nav-toggle');
@@ -481,8 +476,7 @@
     if (window.scrollY > 10) nav.classList.add('is-scrolled');
     else nav.classList.remove('is-scrolled');
   }
-  setScrolled();
-  window.addEventListener('scroll', setScrolled);
+  setScrolled(); window.addEventListener('scroll', setScrolled);
 
   toggle.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
@@ -494,11 +488,8 @@
     toggle.setAttribute('aria-expanded', 'false');
   }));
 
-  // Resaltado del enlace activo por sección
   const sections = document.querySelectorAll('header#inicio, section[id]');
-  const byHref = {};
-  links.forEach(a => { byHref[a.getAttribute('href')] = a; });
-
+  const byHref = {}; links.forEach(a => { byHref[a.getAttribute('href')] = a; });
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -507,7 +498,6 @@
       if (byHref[id]) byHref[id].classList.add('active');
     });
   }, { threshold: 0.55 });
-
   sections.forEach(sec => io.observe(sec));
 })();
 
@@ -562,4 +552,3 @@
 </script>
 </body>
 </html>
-
