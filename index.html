@@ -6,7 +6,7 @@
   <title>Green Solutions - Consultoría Agrícola y Ambiental</title>
   <meta name="description" content="Consultoría especializada en agricultura sostenible, manejo de suelos y agua, SIG y teledetección." />
   <style>
-  /* ===== BASE + VARIABLES CROMÁTICAS ===== */
+  /* ===== BASE + SISTEMA CROMÁTICO OPTIMIZADO ===== */
   :root{ 
     --nav-h:64px;
     
@@ -17,17 +17,23 @@
     --color-celeste: #9bcbd5;
     --color-hueso: #efe6ce;
     
-    /* Variaciones tonales */
+    /* Variaciones tonales extendidas */
     --color-verde-impacto-dark: #2a3819;
+    --color-verde-impacto-darker: #1f2912;
     --color-verde-organico-light: #aac977;
+    --color-verde-organico-dark: #7a9945;
+    --color-celeste-light: #b8dce5;
+    --color-celeste-dark: #7db5c4;
     --color-hueso-dark: #e5ddc0;
+    --color-verde-muy-claro: #f4f7f0;
     
-    /* Aplicaciones semánticas */
+    /* Aplicaciones semánticas refinadas */
     --color-principal: var(--color-verde-impacto);
-    --color-acento: var(--color-verde-organico);
-    --color-secundario: var(--color-cafe-solutions);
+    --color-acento-primario: var(--color-verde-organico);
+    --color-acento-secundario: var(--color-celeste);
+    --color-terciario: var(--color-cafe-solutions);
     --color-fondo-claro: var(--color-hueso);
-    --color-highlight: var(--color-celeste);
+    --color-fondo-muy-claro: var(--color-verde-muy-claro);
   }
   
   html{ scroll-behavior:smooth; }
@@ -36,43 +42,55 @@
   .gs-container{ max-width:1200px; margin:0 auto; padding:0 20px; }
   header#inicio, section[id]{ scroll-margin-top: calc(var(--nav-h) + 12px); }
 
-  /* ===== TOP NAV (MENÚ) ===== */
+  /* ===== TOP NAV (MENÚ) - PRESENCIA SÓLIDA ===== */
   .gs-topnav{
     position:sticky; top:0; z-index:1000;
-    backdrop-filter: blur(10px);
-    background: rgba(52, 71, 32, 0.30);
-    border-bottom:1px solid rgba(150, 186, 86, 0.12);
+    background: var(--color-verde-impacto);
+    border-bottom:2px solid var(--color-verde-organico);
+    box-shadow: 0 2px 8px rgba(52, 71, 32, 0.15);
   }
   .gs-topnav.is-scrolled{
-    background: rgba(52, 71, 32, 0.92);
-    box-shadow: 0 10px 30px rgba(52, 71, 32, 0.25);
+    background: var(--color-verde-impacto-dark);
+    box-shadow: 0 4px 20px rgba(52, 71, 32, 0.3);
   }
   .gs-topnav-inner{
     height:var(--nav-h);
     display:flex; align-items:center; justify-content:space-between;
   }
-  .brand{ color:#fff; text-decoration:none; font-weight:700; letter-spacing:.3px; }
-  .nav-toggle{
-    display:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,.35);
-    padding:8px 12px; border-radius:10px; cursor:pointer;
+  .brand{ 
+    color:#fff; text-decoration:none; font-weight:700; letter-spacing:.5px; 
+    font-size:1.1rem; text-shadow: 0 1px 2px rgba(0,0,0,.2);
   }
-  .menu{ list-style:none; display:flex; gap:18px; }
-  .menu a{ color:#fff; text-decoration:none; opacity:.9; padding:8px 10px; border-radius:8px; }
-  .menu a:hover{ opacity:1; background:rgba(150, 186, 86, 0.15); }
-  .menu a.active{ background:var(--color-verde-organico); opacity:1; }
+  .nav-toggle{
+    display:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,.4);
+    padding:8px 12px; border-radius:8px; cursor:pointer; font-size:1.2rem;
+  }
+  .menu{ list-style:none; display:flex; gap:8px; }
+  .menu a{ 
+    color:#fff; text-decoration:none; opacity:.88; padding:8px 14px; 
+    border-radius:6px; transition:all .25s ease; font-size:.95rem;
+  }
+  .menu a:hover{ 
+    opacity:1; background:rgba(150, 186, 86, 0.25); 
+    transform:translateY(-1px);
+  }
+  .menu a.active{ 
+    background:var(--color-verde-organico); 
+    opacity:1; box-shadow: 0 2px 8px rgba(150, 186, 86, 0.4);
+  }
 
   @media (max-width: 880px){
     .nav-toggle{ display:block; }
     .menu{
-      position:absolute; right:20px; top:calc(var(--nav-h) - 8px);
-      flex-direction:column; gap:10px; background:rgba(52, 71, 32, 0.96);
-      border:1px solid rgba(150, 186, 86, 0.15); border-radius:12px; padding:12px;
-      display:none;
+      position:absolute; right:20px; top:calc(var(--nav-h) - 4px);
+      flex-direction:column; gap:6px; background:var(--color-verde-impacto-dark);
+      border:1px solid var(--color-verde-organico); border-radius:10px; padding:10px;
+      display:none; box-shadow: 0 8px 24px rgba(0,0,0,.3);
     }
     .menu.open{ display:flex; }
   }
 
-  /* ===== HEADER con fondo-carrusel ===== */
+  /* ===== HEADER - GRADIENTE COHESIVO ===== */
   .gs-header{
     position: relative; color: white; text-align: center;
     padding: 96px 20px; margin: -20px -20px 0 -20px; overflow: hidden;
@@ -82,127 +100,368 @@
   .gs-hero-bg img{
     position:absolute; inset:0; width:100%; height:100%;
     object-fit:cover; opacity:0; transition:opacity 900ms ease; pointer-events:none;
-    filter:saturate(1.05);
+    filter:saturate(1.08) brightness(0.95);
   }
   .gs-hero-bg img.is-active{ opacity:1; }
   .gs-header::before{
     content:''; position:absolute; inset:0; z-index:1;
-    background: linear-gradient(135deg, rgba(52, 71, 32, 0.45), rgba(150, 186, 86, 0.35));
+    background: linear-gradient(135deg, 
+      rgba(52, 71, 32, 0.72) 0%, 
+      rgba(122, 153, 69, 0.55) 50%,
+      rgba(155, 203, 213, 0.35) 100%
+    );
   }
   .gs-header .gs-container{ position:relative; z-index:2; }
   .gs-header h1{
     font-size:3.2rem; font-weight:300; margin-bottom:1.5rem;
-    letter-spacing:3px; text-transform:uppercase;
+    letter-spacing:4px; text-transform:uppercase;
+    text-shadow: 0 2px 12px rgba(0,0,0,.35);
   }
   .gs-header p{
-    font-size:1.1rem; margin-bottom:2.5rem; opacity:.95; font-weight:300;
-    max-width:600px; margin-left:auto; margin-right:auto;
+    font-size:1.15rem; margin-bottom:2.8rem; opacity:.95; font-weight:300;
+    max-width:620px; margin-left:auto; margin-right:auto;
+    text-shadow: 0 1px 4px rgba(0,0,0,.25);
   }
   .gs-cta-button{
-    background:transparent; color:white; padding:12px 30px; border:2px solid var(--color-celeste);
-    font-size:.9rem; text-decoration:none; display:inline-block; transition:.3s ease;
-    font-weight:400; letter-spacing:1px; text-transform:uppercase; border-radius:12px;
+    background:var(--color-verde-organico); color:white; 
+    padding:14px 36px; border:none;
+    font-size:.95rem; text-decoration:none; display:inline-block; 
+    transition:all .35s ease;
+    font-weight:600; letter-spacing:1.2px; text-transform:uppercase; 
+    border-radius:8px;
+    box-shadow: 0 4px 16px rgba(150, 186, 86, 0.4);
   }
-  .gs-cta-button:hover{ background:var(--color-celeste); color:var(--color-verde-impacto); }
+  .gs-cta-button:hover{ 
+    background:var(--color-verde-organico-dark); 
+    transform:translateY(-2px);
+    box-shadow: 0 6px 24px rgba(150, 186, 86, 0.5);
+  }
+  
+  /* CTA secundario (usado en sección contacto) */
+  .gs-cta-button.secondary{
+    background:transparent; 
+    border:2px solid var(--color-cafe-solutions);
+    color:var(--color-verde-impacto);
+  }
+  .gs-cta-button.secondary:hover{
+    background:var(--color-celeste);
+    border-color:var(--color-celeste);
+    color:white;
+  }
 
-  /* ===== SECCIONES ===== */
+  /* ===== SECCIONES - FONDOS ESTRATIFICADOS ===== */
   .gs-section{ padding:80px 20px; margin:0 -20px; }
   .gs-section-title{
-    text-align:center; font-size:2.2rem; color:var(--color-verde-impacto); margin-bottom:4rem;
-    font-weight:300; letter-spacing:2px; text-transform:uppercase; position:relative;
+    text-align:center; font-size:2.2rem; color:var(--color-verde-impacto); 
+    margin-bottom:4rem;
+    font-weight:300; letter-spacing:2px; text-transform:uppercase; 
+    position:relative;
   }
   .gs-section-title::after{
-    content:''; width:60px; height:2px; background:var(--color-verde-organico);
+    content:''; width:80px; height:3px; 
+    background: linear-gradient(90deg, 
+      var(--color-verde-organico), 
+      var(--color-celeste)
+    );
     position:absolute; bottom:-20px; left:50%; transform:translateX(-50%);
+    border-radius:2px;
   }
 
-  /* ===== QUIÉNES SOMOS ===== */
-  .gs-about{ background:var(--color-hueso); }
-  .gs-about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start; margin-top:3rem; max-width:1000px; margin:auto; }
-  .gs-about-text h3{ color:var(--color-verde-impacto); font-size:1.4rem; margin-bottom:1.5rem; font-weight:400; letter-spacing:1px; }
-  .gs-about-text p{ font-size:1rem; line-height:1.8; color:#555; font-weight:300; }
+  /* ===== QUIÉNES SOMOS - FONDO VERDE MUY CLARO ===== */
+  .gs-about{ background:var(--color-fondo-muy-claro); }
+  .gs-about-grid{ 
+    display:grid; grid-template-columns:1fr 1fr; gap:6rem; 
+    align-items:start; margin-top:3rem; max-width:1000px; margin:auto; 
+  }
+  .gs-about-text h3{ 
+    color:var(--color-verde-impacto); font-size:1.4rem; 
+    margin-bottom:1.5rem; font-weight:500; letter-spacing:1px; 
+  }
+  .gs-about-text p{ 
+    font-size:1rem; line-height:1.85; color:#4a4a4a; font-weight:300; 
+  }
 
-  /* ===== EQUIPO CONSULTOR ===== */
+  /* ===== EQUIPO CONSULTOR - FONDO BLANCO ===== */
+  .gs-team{ background:#fff; }
   .gs-team-description{ max-width:900px; margin:0 auto; text-align:center; }
-  .gs-team-description p{ font-size:1.1rem; line-height:1.8; color:#555; margin-bottom:2rem; text-align:justify; }
-  .gs-team-highlights{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:3rem; justify-items:center;
+  .gs-team-description p{ 
+    font-size:1.1rem; line-height:1.8; color:#4a4a4a; 
+    margin-bottom:2rem; text-align:justify; 
   }
-  .gs-highlight-item{ background:white; padding:2rem; border:1px solid var(--color-hueso-dark); text-align:center; position:relative; transition:all .3s ease; }
-  .gs-highlight-item:hover{ box-shadow:0 5px 20px rgba(150, 186, 86, 0.2); transform:translateY(-2px); }
-  .gs-highlight-item::before{ content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:var(--color-cafe-solutions); }
-  .gs-highlight-item h4{ color:var(--color-verde-impacto); font-size:1.1rem; margin-bottom:1rem; font-weight:600; }
-  .gs-highlight-item p{ color:#666; font-size:.9rem; line-height:1.5; }
+  .gs-team-highlights{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:2.5rem; 
+    margin-top:3.5rem; justify-items:center;
+  }
+  .gs-highlight-item{ 
+    background:white; padding:2.5rem; 
+    border:1px solid var(--color-celeste-light); 
+    text-align:center; position:relative; 
+    transition:all .3s ease;
+    box-shadow: 0 2px 8px rgba(155, 203, 213, 0.12);
+  }
+  .gs-highlight-item:hover{ 
+    box-shadow:0 6px 24px rgba(155, 203, 213, 0.25); 
+    transform:translateY(-4px);
+    border-color:var(--color-celeste);
+  }
+  .gs-highlight-item::before{ 
+    content:''; position:absolute; top:0; left:0; 
+    width:4px; height:100%; background:var(--color-celeste); 
+  }
+  .gs-highlight-item h4{ 
+    color:var(--color-verde-impacto); font-size:1.15rem; 
+    margin-bottom:1rem; font-weight:600; 
+  }
+  .gs-highlight-item p{ 
+    color:#666; font-size:.92rem; line-height:1.6; 
+  }
 
-  /* ===== SERVICIOS (LISTADO HORIZONTAL POR TÍTULOS) ===== */
+  /* ===== SERVICIOS - FONDO BLANCO, BORDES ALTERNADOS ===== */
+  .gs-services{ background:#fff; }
   .gs-services-columns{
     display:grid; grid-template-columns: repeat(4, 1fr);
     gap: 2rem 2.5rem; max-width:1100px; margin:0 auto; align-items:start;
   }
   .gs-service-col h3{
-    color:var(--color-verde-impacto); font-size:1.15rem; margin-bottom:1rem; font-weight:700 !important;
-    letter-spacing:.4px; border-bottom:2px solid var(--color-hueso-dark); padding-bottom:.6rem;
+    color:var(--color-verde-impacto); font-size:1.15rem; 
+    margin-bottom:1rem; font-weight:700 !important;
+    letter-spacing:.5px; 
+    border-bottom:3px solid var(--color-verde-organico); 
+    padding-bottom:.7rem;
   }
+  .gs-service-col:nth-child(2) h3{ border-bottom-color:var(--color-celeste); }
+  .gs-service-col:nth-child(3) h3{ border-bottom-color:var(--color-cafe-solutions); }
+  .gs-service-col:nth-child(4) h3{ border-bottom-color:var(--color-verde-organico); }
+  
   .gs-service-col ul{ list-style:none; }
-  .gs-service-col li{ margin-bottom:.9rem; }
-  .gs-service-col li strong{ color:var(--color-verde-impacto); display:block; margin-bottom:.2rem; font-size:.95rem; font-weight:600; }
-  .gs-service-col li p{ color:#555; font-size:.9rem; font-weight:300; line-height:1.5; }
+  .gs-service-col li{ margin-bottom:1rem; }
+  .gs-service-col li strong{ 
+    color:var(--color-verde-impacto); display:block; 
+    margin-bottom:.3rem; font-size:.96rem; font-weight:600; 
+  }
+  .gs-service-col li p{ 
+    color:#555; font-size:.9rem; font-weight:300; line-height:1.6; 
+  }
 
-  /* ===== INSUMOS ===== */
+  /* ===== INSUMOS - FONDO HUESO ===== */
   .gs-insumos{ background:var(--color-hueso); }
-  .gs-services-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:3rem; margin-top:4rem; max-width:1000px; margin:auto; }
-  .gs-service-card{ background:white; padding:2.5rem; border:1px solid var(--color-hueso-dark); position:relative; }
-  .gs-service-card::before{ content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:var(--color-cafe-solutions); }
-  .gs-service-card h3{ color:var(--color-verde-impacto); font-size:1.2rem; margin-bottom:2rem; font-weight:700 !important; letter-spacing:.5px; }
+  .gs-services-grid{ 
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); 
+    gap:3rem; margin-top:4rem; max-width:1000px; margin:auto; 
+  }
+  .gs-service-card{ 
+    background:white; padding:2.5rem; 
+    border:1px solid var(--color-hueso-dark); position:relative;
+    transition:all .3s ease;
+  }
+  .gs-service-card:hover{
+    box-shadow: 0 6px 20px rgba(52, 71, 32, 0.12);
+    transform:translateY(-3px);
+  }
+  .gs-service-card::before{ 
+    content:''; position:absolute; top:0; left:0; 
+    width:5px; height:100%; 
+    background:var(--color-cafe-solutions); 
+  }
+  .gs-service-card:nth-child(2)::before{ 
+    background:var(--color-verde-organico); 
+  }
+  .gs-service-card:nth-child(3)::before{ 
+    background:var(--color-celeste); 
+  }
+  .gs-service-card h3{ 
+    color:var(--color-verde-impacto); font-size:1.25rem; 
+    margin-bottom:2rem; font-weight:700 !important; letter-spacing:.6px; 
+  }
   .gs-service-list{ list-style:none; }
-  .gs-service-list li{ margin-bottom:1.2rem; padding:1rem 0; border-bottom:1px solid var(--color-hueso); }
+  .gs-service-list li{ 
+    margin-bottom:1.2rem; padding:1rem 0; 
+    border-bottom:1px solid var(--color-hueso); 
+  }
   .gs-service-list li:last-child{ border-bottom:none; }
-  .gs-service-list li strong{ color:var(--color-verde-impacto); display:block; margin-bottom:.4rem; font-size:.95rem; font-weight:600; }
-  .gs-service-list li p{ color:#666; font-size:.9rem; font-weight:300; }
+  .gs-service-list li strong{ 
+    color:var(--color-verde-impacto); display:block; 
+    margin-bottom:.5rem; font-size:.96rem; font-weight:600; 
+  }
+  .gs-service-list li p{ 
+    color:#666; font-size:.9rem; font-weight:300; line-height:1.6; 
+  }
 
-  /* ===== COBERTURA ===== */
-  .gs-coverage{ background:var(--color-verde-impacto); color:white; text-align:center; }
+  /* ===== COBERTURA - INVERSIÓN CROMÁTICA ===== */
+  .gs-coverage{ 
+    background: linear-gradient(135deg, 
+      var(--color-verde-impacto) 0%, 
+      var(--color-verde-impacto-dark) 100%
+    ); 
+    color:white; text-align:center; 
+  }
   .gs-coverage .gs-section-title{ color:white; }
-  .gs-coverage .gs-section-title::after{ background:var(--color-verde-organico); }
+  .gs-coverage .gs-section-title::after{ 
+    background: linear-gradient(90deg, 
+      var(--color-verde-organico), 
+      var(--color-celeste)
+    );
+  }
   .gs-coverage-content{ max-width:700px; margin:0 auto; }
-  .gs-coverage h3{ font-size:1.4rem; margin-bottom:2rem; font-weight:300; letter-spacing:1px; }
-  .gs-coverage p{ font-size:1rem; margin-bottom:2rem; line-height:1.7; font-weight:300; opacity:.9; }
-  .gs-coverage-features{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:4rem; }
-  .gs-coverage-feature{ background:rgba(150, 186, 86, 0.08); padding:2rem; border:1px solid rgba(150, 186, 86, 0.15); transition:.3s ease; }
-  .gs-coverage-feature:hover{ background:rgba(150, 186, 86, 0.15); }
-  .gs-coverage-feature h4{ font-size:1rem; margin-bottom:.8rem; font-weight:400; letter-spacing:.5px; }
-  .gs-coverage-feature p{ font-size:.9rem; opacity:.8; }
+  .gs-coverage h3{ 
+    font-size:1.4rem; margin-bottom:2rem; font-weight:300; 
+    letter-spacing:1px; 
+  }
+  .gs-coverage p{ 
+    font-size:1.05rem; margin-bottom:2rem; line-height:1.75; 
+    font-weight:300; opacity:.92; 
+  }
+  .gs-coverage-features{ 
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); 
+    gap:2rem; margin-top:4rem; 
+  }
+  .gs-coverage-feature{ 
+    background:rgba(150, 186, 86, 0.1); padding:2.5rem; 
+    border:1px solid rgba(150, 186, 86, 0.2); 
+    transition:.3s ease; border-radius:4px;
+  }
+  .gs-coverage-feature:nth-child(2){
+    background:rgba(155, 203, 213, 0.1);
+    border-color:rgba(155, 203, 213, 0.2);
+  }
+  .gs-coverage-feature:hover{ 
+    background:rgba(150, 186, 86, 0.18); 
+    border-color:rgba(150, 186, 86, 0.35);
+    transform:translateY(-3px);
+  }
+  .gs-coverage-feature:nth-child(2):hover{
+    background:rgba(155, 203, 213, 0.18);
+    border-color:rgba(155, 203, 213, 0.35);
+  }
+  .gs-coverage-feature h4{ 
+    font-size:1.05rem; margin-bottom:.9rem; font-weight:500; 
+    letter-spacing:.5px; 
+  }
+  .gs-coverage-feature p{ 
+    font-size:.92rem; opacity:.85; margin-bottom:0; 
+  }
 
-  /* ===== CONTACTO ===== */
-  .gs-contact{ background:var(--color-hueso); }
-  .gs-contact-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:3rem; margin-top:4rem; max-width:900px; margin:auto; }
-  .gs-contact-card{ background:white; padding:2.5rem; text-align:center; border:1px solid var(--color-hueso-dark); transition:.3s ease; }
-  .gs-contact-card:hover{ box-shadow:0 5px 20px rgba(150, 186, 86, 0.1); }
-  .gs-contact-icon{ width:50px; height:50px; background:var(--color-verde-organico); margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; color:white; font-size:1.2rem; font-weight:300; }
-  .gs-contact-card h3{ color:var(--color-verde-impacto); margin-bottom:1rem; font-size:1.1rem; font-weight:700 !important; letter-spacing:.5px; }
-  .gs-contact-card p{ font-weight:400; color:#555; font-size:1rem; }
-  .gs-contact-card a{ color:var(--color-cafe-solutions); text-decoration:none; transition:color .3s ease; }
-  .gs-contact-card a:hover{ color:var(--color-verde-impacto); }
-  .gs-contact-cta{ text-align:center; margin-top:4rem; padding:3rem; background:white; border:1px solid var(--color-hueso-dark); }
-  .gs-contact-cta h3{ color:var(--color-verde-impacto); margin-bottom:1.5rem; font-weight:700 !important; font-size:1.3rem; }
-  .gs-contact-cta p{ margin-bottom:2rem; color:#666; font-weight:300; line-height:1.6; }
+  /* ===== CONTACTO - FONDO VERDE MUY CLARO ===== */
+  .gs-contact{ background:var(--color-fondo-muy-claro); }
+  .gs-contact-grid{ 
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); 
+    gap:3rem; margin-top:4rem; max-width:900px; margin:auto; 
+  }
+  .gs-contact-card{ 
+    background:white; padding:2.5rem; text-align:center; 
+    border:1px solid var(--color-hueso-dark); 
+    transition:.3s ease; border-radius:4px;
+  }
+  .gs-contact-card:hover{ 
+    box-shadow:0 6px 24px rgba(150, 186, 86, 0.15); 
+    transform:translateY(-3px);
+  }
+  .gs-contact-icon{ 
+    width:56px; height:56px; 
+    background: linear-gradient(135deg, 
+      var(--color-verde-organico), 
+      var(--color-celeste)
+    ); 
+    margin:0 auto 1.5rem; display:flex; align-items:center; 
+    justify-content:center; color:white; font-size:1.3rem; 
+    font-weight:400; border-radius:50%;
+    box-shadow: 0 4px 12px rgba(150, 186, 86, 0.25);
+  }
+  .gs-contact-card:nth-child(2) .gs-contact-icon{
+    background: linear-gradient(135deg, 
+      var(--color-celeste), 
+      var(--color-cafe-solutions)
+    );
+  }
+  .gs-contact-card:nth-child(3) .gs-contact-icon{
+    background: linear-gradient(135deg, 
+      var(--color-cafe-solutions), 
+      var(--color-verde-organico)
+    );
+  }
+  .gs-contact-card h3{ 
+    color:var(--color-verde-impacto); margin-bottom:1rem; 
+    font-size:1.1rem; font-weight:700 !important; letter-spacing:.5px; 
+  }
+  .gs-contact-card p{ 
+    font-weight:400; color:#555; font-size:1rem; 
+  }
+  .gs-contact-card a{ 
+    color:var(--color-verde-organico-dark); text-decoration:none; 
+    transition:color .3s ease; font-weight:500;
+  }
+  .gs-contact-card a:hover{ 
+    color:var(--color-verde-impacto); 
+  }
+  .gs-contact-cta{ 
+    text-align:center; margin-top:4rem; padding:3.5rem; 
+    background:white; border:2px solid var(--color-verde-organico);
+    border-radius:4px;
+  }
+  .gs-contact-cta h3{ 
+    color:var(--color-verde-impacto); margin-bottom:1.5rem; 
+    font-weight:700 !important; font-size:1.4rem; 
+  }
+  .gs-contact-cta p{ 
+    margin-bottom:2.5rem; color:#666; font-weight:300; 
+    line-height:1.7; max-width:600px; margin-left:auto; margin-right:auto;
+  }
 
-  /* ===== FOOTER ===== */
-  .gs-footer{ background:var(--color-verde-impacto-dark); color:white; padding:60px 20px 40px; margin:0 -20px -20px -20px; }
+  /* ===== FOOTER - GRADIENTE OSCURO ===== */
+  .gs-footer{ 
+    background: linear-gradient(180deg, 
+      var(--color-verde-impacto-dark) 0%, 
+      var(--color-verde-impacto-darker) 100%
+    ); 
+    color:white; padding:60px 20px 40px; margin:0 -20px -20px -20px; 
+  }
   .gs-footer-content{ max-width:1200px; margin:0 auto; }
-  .gs-footer-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:3rem; margin-bottom:3rem; }
-  .gs-footer-section h4{ color:white; margin-bottom:1.5rem; font-size:1.1rem; font-weight:700 !important; letter-spacing:.5px; }
-  .gs-footer-section p{ color:rgba(255,255,255,.7); line-height:1.6; margin-bottom:.8rem; font-size:.9rem; font-weight:300; }
-  .gs-footer-section a{ color:rgba(255,255,255,.8); text-decoration:none; transition:color .3s ease; }
-  .gs-footer-section a:hover{ color:white; }
-  .gs-footer-bottom{ border-top:1px solid rgba(255,255,255,.1); padding-top:2rem; text-align:center; }
-  .gs-footer-bottom p{ margin-bottom:.5rem; color:rgba(255,255,255,.6); font-size:.9rem; }
+  .gs-footer-grid{ 
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); 
+    gap:3rem; margin-bottom:3rem; 
+  }
+  .gs-footer-section h4{ 
+    color:var(--color-verde-organico-light); margin-bottom:1.5rem; 
+    font-size:1.1rem; font-weight:700 !important; letter-spacing:.6px; 
+  }
+  .gs-footer-section p{ 
+    color:rgba(255,255,255,.75); line-height:1.7; 
+    margin-bottom:.8rem; font-size:.92rem; font-weight:300; 
+  }
+  .gs-footer-section a{ 
+    color:rgba(255,255,255,.85); text-decoration:none; 
+    transition:color .3s ease; 
+  }
+  .gs-footer-section a:hover{ 
+    color:var(--color-celeste-light); 
+  }
+  .gs-footer-bottom{ 
+    border-top:1px solid rgba(255,255,255,.15); 
+    padding-top:2rem; text-align:center; 
+  }
+  .gs-footer-bottom p{ 
+    margin-bottom:.5rem; color:rgba(255,255,255,.65); font-size:.9rem; 
+  }
   .gs-social-links{ margin-top:1.5rem; }
-  .gs-social-links a{ display:inline-block; margin:0 8px; padding:8px; background:rgba(255,255,255,.1); width:36px; height:36px; text-align:center; line-height:20px; transition:.3s ease; color:white; text-decoration:none; font-size:.9rem; }
-  .gs-social-links a:hover{ background:var(--color-verde-organico); }
+  .gs-social-links a{ 
+    display:inline-block; margin:0 8px; padding:10px; 
+    background:rgba(150, 186, 86, 0.15); width:40px; height:40px; 
+    text-align:center; line-height:20px; transition:.3s ease; 
+    color:white; text-decoration:none; font-size:.95rem; 
+    border-radius:50%;
+    border:1px solid rgba(150, 186, 86, 0.3);
+  }
+  .gs-social-links a:hover{ 
+    background:var(--color-verde-organico); 
+    border-color:var(--color-verde-organico);
+    transform:translateY(-2px);
+  }
 
   /* ===== RESPONSIVE ===== */
-  @media (max-width: 1024px){ .gs-services-columns{ grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 1024px){ 
+    .gs-services-columns{ grid-template-columns: repeat(2, 1fr); } 
+    .gs-team-highlights{ grid-template-columns:1fr; max-width:400px; margin-left:auto; margin-right:auto; }
+  }
   @media (max-width: 640px){
     .gs-services-columns{ grid-template-columns:1fr; }
     .gs-header h1{ font-size:2.2rem; letter-spacing:2px; }
@@ -213,6 +472,7 @@
   }
   @media (prefers-reduced-motion: reduce){
     .gs-hero-bg img{ transition:none !important; }
+    *{ transition:none !important; }
   }
   </style>
 </head>
@@ -277,7 +537,7 @@
 </section>
 
 <!-- ===== NUESTRO EQUIPO CONSULTOR ===== -->
-<section class="gs-section">
+<section class="gs-section gs-team">
   <div class="gs-container">
     <h2 class="gs-section-title">Nuestro Equipo Consultor</h2>
     <div class="gs-team-description">
@@ -308,7 +568,7 @@
 </section>
 
 <!-- ===== NUESTROS SERVICIOS ===== -->
-<section class="gs-section" id="servicios">
+<section class="gs-section gs-services" id="servicios">
   <div class="gs-container">
     <h2 class="gs-section-title">Nuestros Servicios</h2>
 
@@ -355,7 +615,7 @@
 </section>
 
 <!-- ===== INSUMOS AGRÍCOLAS ===== -->
-<section class="gs-section gs-about gs-insumos" id="insumos">
+<section class="gs-section gs-insumos" id="insumos">
   <div class="gs-container">
     <h2 class="gs-section-title">Insumos Agrícolas</h2>
     <div class="gs-services-grid">
@@ -438,7 +698,7 @@
       <h3>Impulsa tu proyecto agrícola</h3>
       <p>Contáctanos y descubre cómo podemos transformar tu agricultura con soluciones sostenibles e innovadoras.</p>
       <a href="mailto:gr3ensolutions@gmail.com?subject=Solicitud%20de%20consulta&body=Hola%20Green%20Solutions%2C%0D%0ANecesito%20asesor%C3%ADa%20en%3A%20[tema]%0D%0ATel%C3%A9fono%3A%20%0D%0AUbicaci%C3%B3n%3A%20%0D%0A"
-         class="gs-cta-button">Solicita una Consulta</a>
+         class="gs-cta-button secondary">Solicita una Consulta</a>
     </div>
   </div>
 </section>
