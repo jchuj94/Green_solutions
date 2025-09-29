@@ -6,8 +6,30 @@
   <title>Green Solutions - Consultoría Agrícola y Ambiental</title>
   <meta name="description" content="Consultoría especializada en agricultura sostenible, manejo de suelos y agua, SIG y teledetección." />
   <style>
-  /* ===== BASE ===== */
-  :root{ --nav-h:64px; }
+  /* ===== BASE + VARIABLES CROMÁTICAS ===== */
+  :root{ 
+    --nav-h:64px;
+    
+    /* Paleta primaria */
+    --color-verde-impacto: #344720;
+    --color-verde-organico: #96ba56;
+    --color-cafe-solutions: #966a56;
+    --color-celeste: #9bcbd5;
+    --color-hueso: #efe6ce;
+    
+    /* Variaciones tonales */
+    --color-verde-impacto-dark: #2a3819;
+    --color-verde-organico-light: #aac977;
+    --color-hueso-dark: #e5ddc0;
+    
+    /* Aplicaciones semánticas */
+    --color-principal: var(--color-verde-impacto);
+    --color-acento: var(--color-verde-organico);
+    --color-secundario: var(--color-cafe-solutions);
+    --color-fondo-claro: var(--color-hueso);
+    --color-highlight: var(--color-celeste);
+  }
+  
   html{ scroll-behavior:smooth; }
   *{ margin:0; padding:0; box-sizing:border-box; }
   body{ font-family:'Google Sans','Roboto',Arial,sans-serif; line-height:1.6; color:#2c3e50; background:#fff; }
@@ -18,12 +40,12 @@
   .gs-topnav{
     position:sticky; top:0; z-index:1000;
     backdrop-filter: blur(10px);
-    background: rgba(13,40,24,.30);
-    border-bottom:1px solid rgba(255,255,255,.12);
+    background: rgba(52, 71, 32, 0.30);
+    border-bottom:1px solid rgba(150, 186, 86, 0.12);
   }
   .gs-topnav.is-scrolled{
-    background: rgba(13,40,24,.92);
-    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    background: rgba(52, 71, 32, 0.92);
+    box-shadow: 0 10px 30px rgba(52, 71, 32, 0.25);
   }
   .gs-topnav-inner{
     height:var(--nav-h);
@@ -36,15 +58,15 @@
   }
   .menu{ list-style:none; display:flex; gap:18px; }
   .menu a{ color:#fff; text-decoration:none; opacity:.9; padding:8px 10px; border-radius:8px; }
-  .menu a:hover{ opacity:1; background:rgba(255,255,255,.08); }
-  .menu a.active{ background:#2d5a3d; opacity:1; }
+  .menu a:hover{ opacity:1; background:rgba(150, 186, 86, 0.15); }
+  .menu a.active{ background:var(--color-verde-organico); opacity:1; }
 
   @media (max-width: 880px){
     .nav-toggle{ display:block; }
     .menu{
       position:absolute; right:20px; top:calc(var(--nav-h) - 8px);
-      flex-direction:column; gap:10px; background:rgba(13,40,24,.96);
-      border:1px solid rgba(255,255,255,.15); border-radius:12px; padding:12px;
+      flex-direction:column; gap:10px; background:rgba(52, 71, 32, 0.96);
+      border:1px solid rgba(150, 186, 86, 0.15); border-radius:12px; padding:12px;
       display:none;
     }
     .menu.open{ display:flex; }
@@ -54,7 +76,7 @@
   .gs-header{
     position: relative; color: white; text-align: center;
     padding: 96px 20px; margin: -20px -20px 0 -20px; overflow: hidden;
-    min-height: 72vh; /* altura del hero */
+    min-height: 72vh;
   }
   .gs-hero-bg{ position:absolute; inset:0; z-index:0; }
   .gs-hero-bg img{
@@ -65,7 +87,7 @@
   .gs-hero-bg img.is-active{ opacity:1; }
   .gs-header::before{
     content:''; position:absolute; inset:0; z-index:1;
-    background: linear-gradient(135deg, rgba(27,67,50,0.45), rgba(45,90,61,0.45));
+    background: linear-gradient(135deg, rgba(52, 71, 32, 0.45), rgba(150, 186, 86, 0.35));
   }
   .gs-header .gs-container{ position:relative; z-index:2; }
   .gs-header h1{
@@ -77,27 +99,27 @@
     max-width:600px; margin-left:auto; margin-right:auto;
   }
   .gs-cta-button{
-    background:transparent; color:white; padding:12px 30px; border:2px solid white;
+    background:transparent; color:white; padding:12px 30px; border:2px solid var(--color-celeste);
     font-size:.9rem; text-decoration:none; display:inline-block; transition:.3s ease;
     font-weight:400; letter-spacing:1px; text-transform:uppercase; border-radius:12px;
   }
-  .gs-cta-button:hover{ background:white; color:#1b4332; }
+  .gs-cta-button:hover{ background:var(--color-celeste); color:var(--color-verde-impacto); }
 
   /* ===== SECCIONES ===== */
   .gs-section{ padding:80px 20px; margin:0 -20px; }
   .gs-section-title{
-    text-align:center; font-size:2.2rem; color:#1b4332; margin-bottom:4rem;
+    text-align:center; font-size:2.2rem; color:var(--color-verde-impacto); margin-bottom:4rem;
     font-weight:300; letter-spacing:2px; text-transform:uppercase; position:relative;
   }
   .gs-section-title::after{
-    content:''; width:60px; height:2px; background:#2d5a3d;
+    content:''; width:60px; height:2px; background:var(--color-verde-organico);
     position:absolute; bottom:-20px; left:50%; transform:translateX(-50%);
   }
 
   /* ===== QUIÉNES SOMOS ===== */
-  .gs-about{ background:#f8faf9; }
+  .gs-about{ background:var(--color-hueso); }
   .gs-about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start; margin-top:3rem; max-width:1000px; margin:auto; }
-  .gs-about-text h3{ color:#1b4332; font-size:1.4rem; margin-bottom:1.5rem; font-weight:400; letter-spacing:1px; }
+  .gs-about-text h3{ color:var(--color-verde-impacto); font-size:1.4rem; margin-bottom:1.5rem; font-weight:400; letter-spacing:1px; }
   .gs-about-text p{ font-size:1rem; line-height:1.8; color:#555; font-weight:300; }
 
   /* ===== EQUIPO CONSULTOR ===== */
@@ -106,10 +128,10 @@
   .gs-team-highlights{
     display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:3rem; justify-items:center;
   }
-  .gs-highlight-item{ background:white; padding:2rem; border:1px solid #e8f2ec; text-align:center; position:relative; transition:all .3s ease; }
-  .gs-highlight-item:hover{ box-shadow:0 5px 20px rgba(27,67,50,.1); transform:translateY(-2px); }
-  .gs-highlight-item::before{ content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:#2d5a3d; }
-  .gs-highlight-item h4{ color:#1b4332; font-size:1.1rem; margin-bottom:1rem; font-weight:600; }
+  .gs-highlight-item{ background:white; padding:2rem; border:1px solid var(--color-hueso-dark); text-align:center; position:relative; transition:all .3s ease; }
+  .gs-highlight-item:hover{ box-shadow:0 5px 20px rgba(150, 186, 86, 0.2); transform:translateY(-2px); }
+  .gs-highlight-item::before{ content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:var(--color-cafe-solutions); }
+  .gs-highlight-item h4{ color:var(--color-verde-impacto); font-size:1.1rem; margin-bottom:1rem; font-weight:600; }
   .gs-highlight-item p{ color:#666; font-size:.9rem; line-height:1.5; }
 
   /* ===== SERVICIOS (LISTADO HORIZONTAL POR TÍTULOS) ===== */
@@ -118,55 +140,55 @@
     gap: 2rem 2.5rem; max-width:1100px; margin:0 auto; align-items:start;
   }
   .gs-service-col h3{
-    color:#1b4332; font-size:1.15rem; margin-bottom:1rem; font-weight:700 !important;
-    letter-spacing:.4px; border-bottom:2px solid #e8f2ec; padding-bottom:.6rem;
+    color:var(--color-verde-impacto); font-size:1.15rem; margin-bottom:1rem; font-weight:700 !important;
+    letter-spacing:.4px; border-bottom:2px solid var(--color-hueso-dark); padding-bottom:.6rem;
   }
   .gs-service-col ul{ list-style:none; }
   .gs-service-col li{ margin-bottom:.9rem; }
-  .gs-service-col li strong{ color:#1b4332; display:block; margin-bottom:.2rem; font-size:.95rem; font-weight:600; }
+  .gs-service-col li strong{ color:var(--color-verde-impacto); display:block; margin-bottom:.2rem; font-size:.95rem; font-weight:600; }
   .gs-service-col li p{ color:#555; font-size:.9rem; font-weight:300; line-height:1.5; }
 
   /* ===== INSUMOS ===== */
-  .gs-insumos{ background:#f8faf9; }
+  .gs-insumos{ background:var(--color-hueso); }
   .gs-services-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:3rem; margin-top:4rem; max-width:1000px; margin:auto; }
-  .gs-service-card{ background:white; padding:2.5rem; border:1px solid #e8f2ec; position:relative; }
-  .gs-service-card::before{ content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:#2d5a3d; }
-  .gs-service-card h3{ color:#1b4332; font-size:1.2rem; margin-bottom:2rem; font-weight:700 !important; letter-spacing:.5px; }
+  .gs-service-card{ background:white; padding:2.5rem; border:1px solid var(--color-hueso-dark); position:relative; }
+  .gs-service-card::before{ content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:var(--color-cafe-solutions); }
+  .gs-service-card h3{ color:var(--color-verde-impacto); font-size:1.2rem; margin-bottom:2rem; font-weight:700 !important; letter-spacing:.5px; }
   .gs-service-list{ list-style:none; }
-  .gs-service-list li{ margin-bottom:1.2rem; padding:1rem 0; border-bottom:1px solid #f0f4f1; }
+  .gs-service-list li{ margin-bottom:1.2rem; padding:1rem 0; border-bottom:1px solid var(--color-hueso); }
   .gs-service-list li:last-child{ border-bottom:none; }
-  .gs-service-list li strong{ color:#1b4332; display:block; margin-bottom:.4rem; font-size:.95rem; font-weight:600; }
+  .gs-service-list li strong{ color:var(--color-verde-impacto); display:block; margin-bottom:.4rem; font-size:.95rem; font-weight:600; }
   .gs-service-list li p{ color:#666; font-size:.9rem; font-weight:300; }
 
   /* ===== COBERTURA ===== */
-  .gs-coverage{ background:#1b4332; color:white; text-align:center; }
+  .gs-coverage{ background:var(--color-verde-impacto); color:white; text-align:center; }
   .gs-coverage .gs-section-title{ color:white; }
-  .gs-coverage .gs-section-title::after{ background:white; }
+  .gs-coverage .gs-section-title::after{ background:var(--color-verde-organico); }
   .gs-coverage-content{ max-width:700px; margin:0 auto; }
   .gs-coverage h3{ font-size:1.4rem; margin-bottom:2rem; font-weight:300; letter-spacing:1px; }
   .gs-coverage p{ font-size:1rem; margin-bottom:2rem; line-height:1.7; font-weight:300; opacity:.9; }
   .gs-coverage-features{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:4rem; }
-  .gs-coverage-feature{ background:rgba(255,255,255,.05); padding:2rem; border:1px solid rgba(255,255,255,.1); transition:.3s ease; }
-  .gs-coverage-feature:hover{ background:rgba(255,255,255,.1); }
+  .gs-coverage-feature{ background:rgba(150, 186, 86, 0.08); padding:2rem; border:1px solid rgba(150, 186, 86, 0.15); transition:.3s ease; }
+  .gs-coverage-feature:hover{ background:rgba(150, 186, 86, 0.15); }
   .gs-coverage-feature h4{ font-size:1rem; margin-bottom:.8rem; font-weight:400; letter-spacing:.5px; }
   .gs-coverage-feature p{ font-size:.9rem; opacity:.8; }
 
   /* ===== CONTACTO ===== */
-  .gs-contact{ background:#f8faf9; }
+  .gs-contact{ background:var(--color-hueso); }
   .gs-contact-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:3rem; margin-top:4rem; max-width:900px; margin:auto; }
-  .gs-contact-card{ background:white; padding:2.5rem; text-align:center; border:1px solid #e8f2ec; transition:.3s ease; }
-  .gs-contact-card:hover{ box-shadow:0 5px 20px rgba(27,67,50,.1); }
-  .gs-contact-icon{ width:50px; height:50px; background:#2d5a3d; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; color:white; font-size:1.2rem; font-weight:300; }
-  .gs-contact-card h3{ color:#1b4332; margin-bottom:1rem; font-size:1.1rem; font-weight:700 !important; letter-spacing:.5px; }
+  .gs-contact-card{ background:white; padding:2.5rem; text-align:center; border:1px solid var(--color-hueso-dark); transition:.3s ease; }
+  .gs-contact-card:hover{ box-shadow:0 5px 20px rgba(150, 186, 86, 0.1); }
+  .gs-contact-icon{ width:50px; height:50px; background:var(--color-verde-organico); margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; color:white; font-size:1.2rem; font-weight:300; }
+  .gs-contact-card h3{ color:var(--color-verde-impacto); margin-bottom:1rem; font-size:1.1rem; font-weight:700 !important; letter-spacing:.5px; }
   .gs-contact-card p{ font-weight:400; color:#555; font-size:1rem; }
-  .gs-contact-card a{ color:#2d5a3d; text-decoration:none; transition:color .3s ease; }
-  .gs-contact-card a:hover{ color:#1b4332; }
-  .gs-contact-cta{ text-align:center; margin-top:4rem; padding:3rem; background:white; border:1px solid #e8f2ec; }
-  .gs-contact-cta h3{ color:#1b4332; margin-bottom:1.5rem; font-weight:700 !important; font-size:1.3rem; }
+  .gs-contact-card a{ color:var(--color-cafe-solutions); text-decoration:none; transition:color .3s ease; }
+  .gs-contact-card a:hover{ color:var(--color-verde-impacto); }
+  .gs-contact-cta{ text-align:center; margin-top:4rem; padding:3rem; background:white; border:1px solid var(--color-hueso-dark); }
+  .gs-contact-cta h3{ color:var(--color-verde-impacto); margin-bottom:1.5rem; font-weight:700 !important; font-size:1.3rem; }
   .gs-contact-cta p{ margin-bottom:2rem; color:#666; font-weight:300; line-height:1.6; }
 
   /* ===== FOOTER ===== */
-  .gs-footer{ background:#0d2818; color:white; padding:60px 20px 40px; margin:0 -20px -20px -20px; }
+  .gs-footer{ background:var(--color-verde-impacto-dark); color:white; padding:60px 20px 40px; margin:0 -20px -20px -20px; }
   .gs-footer-content{ max-width:1200px; margin:0 auto; }
   .gs-footer-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:3rem; margin-bottom:3rem; }
   .gs-footer-section h4{ color:white; margin-bottom:1.5rem; font-size:1.1rem; font-weight:700 !important; letter-spacing:.5px; }
@@ -177,7 +199,7 @@
   .gs-footer-bottom p{ margin-bottom:.5rem; color:rgba(255,255,255,.6); font-size:.9rem; }
   .gs-social-links{ margin-top:1.5rem; }
   .gs-social-links a{ display:inline-block; margin:0 8px; padding:8px; background:rgba(255,255,255,.1); width:36px; height:36px; text-align:center; line-height:20px; transition:.3s ease; color:white; text-decoration:none; font-size:.9rem; }
-  .gs-social-links a:hover{ background:#2d5a3d; }
+  .gs-social-links a:hover{ background:var(--color-verde-organico); }
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 1024px){ .gs-services-columns{ grid-template-columns: repeat(2, 1fr); } }
@@ -215,7 +237,6 @@
 <!-- ===== HEADER (con fondo de carrusel) ===== -->
 <header id="inicio" class="gs-header">
   <div class="gs-hero-bg" aria-hidden="true">
-    <!-- Imágenes desde Google Drive (asegura “Cualquiera con el enlace”) -->
     <img referrerpolicy="no-referrer" data-drive-id="101-TMmVzQSdmJ-Z9mSQPHP3quFGCNwrp" alt="" />
     <img referrerpolicy="no-referrer" data-drive-id="1amoLZ92OaAIwXVXmNzdFNS6vlHSYAuHa" alt="" />
     <img referrerpolicy="no-referrer" data-drive-id="15n6w-kvWBSw9QuyZTRES3Bw8DRcoEh4H" alt="" />
@@ -292,41 +313,34 @@
     <h2 class="gs-section-title">Nuestros Servicios</h2>
 
     <div class="gs-services-columns" role="list">
-      <!-- Columna 1 -->
       <div class="gs-service-col" role="listitem">
         <h3>Estudios Técnicos Especializados</h3>
         <ul>
           <li><strong>Estudios Hidrogeológicos</strong><p>Disponibilidad y dinámica del agua subterránea para proyectos agrícolas, industriales o comunitarios.</p></li>
           <li><strong>Calidad de Agua</strong><p>Análisis físico-químico y microbiológico para riego o consumo.</p></li>
           <li><strong>Estudios de Suelos</strong><p>Diagnóstico de propiedades físicas, químicas y biológicas.</p></li>
-          <!-- Eliminado: Fertilidad de Suelos -->
         </ul>
       </div>
 
-      <!-- Columna 2 -->
       <div class="gs-service-col" role="listitem">
         <h3>Agricultura de Precisión</h3>
         <ul>
           <li><strong>Planes de Fertilización Avanzada</strong><p>Curvas de absorción de nutrientes por etapa fenológica y fertirriego automatizado.</p></li>
-          <!-- Eliminado: Agricultura Controlada -->
           <li><strong>Fotogrametría y Teledetección</strong><p>Drones para mapeo NDVI, análisis multitemporales y detección de estrés hídrico.</p></li>
           <li><strong>SIG Especializado</strong><p>Modelos digitales de alta precisión y cartografía de variabilidad espacial.</p></li>
           <li><strong>Agricultura Regenerativa</strong><p>Capacitaciones en salud del suelo, secuestro de carbono y prácticas sostenibles.</p></li>
         </ul>
       </div>
 
-      <!-- Columna 3 -->
       <div class="gs-service-col" role="listitem">
         <h3>Certificación Agrícola</h3>
         <ul>
           <li><strong>Certificaciones Internacionales</strong><p>BPA, GlobalG.A.P., Rainforest Alliance, Fairtrade, UTZ Certified.</p></li>
           <li><strong>Inocuidad Alimentaria HACCP</strong><p>Implementación de sistemas HACCP y diseño de plantas empacadoras certificadas.</p></li>
-          <!-- Eliminado: Trazabilidad Completa -->
           <li><strong>Capacitación Sostenible</strong><p>Programas formativos en agricultura regenerativa y prácticas ambientalmente responsables.</p></li>
         </ul>
       </div>
 
-      <!-- Columna 4 -->
       <div class="gs-service-col" role="listitem">
         <h3>Gestión Ambiental</h3>
         <ul>
@@ -490,7 +504,6 @@
     toggle.setAttribute('aria-expanded', 'false');
   }));
 
-  // Resaltado del enlace activo por sección
   const sections = document.querySelectorAll('header#inicio, section[id]');
   const byHref = {}; links.forEach(a => { byHref[a.getAttribute('href')] = a; });
   const io = new IntersectionObserver((entries) => {
@@ -504,7 +517,7 @@
   sections.forEach(sec => io.observe(sec));
 })();
 
-/* Carrusel de fondo en header — robusto para GitHub Pages */
+/* Carrusel de fondo en header */
 (function(){
   const hero = document.querySelector('.gs-hero-bg');
   if(!hero) return;
@@ -524,7 +537,7 @@
 
     const useFallback = () => {
       const n = String(i + 1).padStart(2, '0');
-      img.src = `assets/img/hero-${n}.jpg`; // opcional si subes imágenes locales
+      img.src = `assets/img/hero-${n}.jpg`;
     };
 
     const tryNext = () => {
@@ -555,4 +568,3 @@
 </script>
 </body>
 </html>
-
