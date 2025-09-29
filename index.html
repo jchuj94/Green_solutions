@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
   /* =========================================================
-     PALETA GREEN SOLUTIONS
+     PALETA (tu esquema cromático)
      Hueso pálido:  #efe6ce   | Verde orgánico: #96ba56
      Verde impacto: #344720   | Celeste puro:   #9bcbd5
      Café solutions:#966a56
@@ -57,7 +57,7 @@
     --cafe-rgb: 150,106,86;
   }
 
-  /* Base */
+  /* ===== BASE ===== */
   html{ scroll-behavior:smooth; }
   *{ margin:0; padding:0; box-sizing:border-box; }
   body{
@@ -68,15 +68,13 @@
   .gs-container{ max-width:1180px; margin:0 auto; padding:0 22px; }
   header#inicio, section[id]{ scroll-margin-top: calc(var(--nav-h) + 12px); }
   img{ max-width:100%; display:block; }
-
-  /* Accesibilidad: focus visible */
   a, button{ outline:none; }
   a:focus-visible, button:focus-visible{
     box-shadow:0 0 0 3px var(--celeste-300), 0 0 0 6px #fff;
     border-radius:10px;
   }
 
-  /* =================== NAV =================== */
+  /* ===== NAV ===== */
   .gs-topnav{
     position:sticky; top:0; z-index:1000;
     background:rgba(52,71,32,.9);
@@ -117,30 +115,28 @@
     .menu.open{ display:flex; }
   }
 
-  /* =================== HERO (sin manchas blancas) =================== */
+  /* ===== HERO (sin separador/“mancha” blanca) ===== */
   .gs-header{
     position:relative; color:#fff; text-align:center;
     padding:120px 22px 108px; margin:-22px -22px 0; overflow:hidden; min-height:78vh;
     isolation:isolate;
-    /* FONDO BASE para evitar flashes/blancos en el blend */
-    background-color:#233017;   /* verde muy oscuro */
+    background-color:#233017; /* evita flashes/blancos */
+    z-index:1;
   }
   .gs-hero-bg{
     position:absolute; inset:0; z-index:0;
-    /* Fondo oscuro por si hay gaps entre imágenes */
-    background-color:#233017;
+    background-color:#233017; /* fondo oscuro bajo imágenes */
   }
   .gs-hero-bg img{
     position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
     opacity:0; transition:opacity 900ms ease;
     filter:saturate(1.06) contrast(1.06) brightness(1.02);
     pointer-events:none;
-    /* Para Safari: evita halos al mezclar */
     will-change: opacity;
   }
   .gs-hero-bg img.is-active{ opacity:1; }
 
-  /* Color grading (sin blancos), encapsulado dentro del header */
+  /* Color grading con tu paleta (no es simple transparencia) */
   .gs-hero-bg::before{
     content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
     background:
@@ -157,7 +153,7 @@
     background: linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(var(--cafe-rgb), .10) 100%);
     mix-blend-mode:soft-light;
   }
-  /* Vignette sin blancos */
+  /* Vignette */
   .gs-header::after{
     content:""; position:absolute; inset:-10%; z-index:3; pointer-events:none;
     background: radial-gradient(62% 58% at 50% 56%, rgba(0,0,0,0) 0%, rgba(0,0,0,.14) 72%, rgba(0,0,0,.26) 100%);
@@ -172,7 +168,7 @@
   }
   .gs-header h1{
     font-size:clamp(2.2rem, 3vw + 1.6rem, 3.6rem);
-    font-weight:600; letter-spacing:.8px; margin:10px 0 14px;
+    font-weight:700; letter-spacing:.2px; margin:10px 0 14px;
     text-shadow:0 6px 22px rgba(0,0,0,.35);
   }
   .gs-header p{
@@ -192,15 +188,15 @@
   .btn-ghost{ background: rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.28); }
   .btn-ghost:hover{ background: rgba(255,255,255,.14); transform:translateY(-2px); }
 
-  /* =================== SECCIONES =================== */
+  /* ===== SECCIONES ===== */
   .gs-section{ padding:84px 22px; margin:0 -22px; }
   .gs-section-title{
     text-align:center; font-size:clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);
-    color:var(--verde-impacto); margin-bottom:40px; font-weight:600; letter-spacing:.3px;
+    color:var(--verde-impacto); margin-bottom:40px; font-weight:700;
   }
   .lead{ color:var(--muted); text-align:center; max-width:860px; margin:0 auto 18px; }
 
-  /* =================== ABOUT =================== */
+  /* ===== ABOUT ===== */
   .gs-about{ background:var(--fondo-muy-claro); }
   .about-grid{
     display:grid; grid-template-columns:1.1fr .9fr; gap:42px; align-items:center;
@@ -224,7 +220,7 @@
     mix-blend-mode:multiply;
   }
 
-  /* =================== HIGHLIGHTS EQUIPO =================== */
+  /* ===== EQUIPO / HIGHLIGHTS ===== */
   .gs-team{ background:#fff; }
   .kpis{
     display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:26px;
@@ -241,7 +237,7 @@
   .kpi h4{ color:var(--verde-impacto); margin-bottom:6px; font-weight:700; }
   .kpi p{ color:var(--muted); font-size:.96rem; }
 
-  /* =================== SERVICIOS =================== */
+  /* ===== SERVICIOS ===== */
   .gs-services{ background:#fff; }
   .services-grid{
     display:grid; grid-template-columns: repeat(4, 1fr); gap:22px;
@@ -263,11 +259,11 @@
   .svc li strong{ display:block; color:var(--verde-impacto); }
   .svc li p{ color:var(--muted); font-size:.94rem; }
 
-  /* =================== INSUMOS =================== */
+  /* ===== INSUMOS ===== */
   .gs-insumos{ background:var(--hueso-palido); }
   .cards{
     display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:22px;
-    margin-top:28px; max-width:1050px; margin-left:auto; margin-right:auto;
+    margin-top:28px; max-width:1050px; margin-inline:auto;
   }
   .card{
     background:#fff; border:1px solid var(--hueso-400); border-radius:18px; padding:24px;
@@ -284,7 +280,7 @@
   .list strong{ color:var(--verde-impacto); }
   .list p{ color:var(--muted); font-size:.95rem; }
 
-  /* =================== COBERTURA =================== */
+  /* ===== COBERTURA ===== */
   .gs-coverage{
     background: linear-gradient(135deg, var(--verde-impacto) 0%, var(--verde-impacto-900) 100%);
     color:#fff; text-align:center; position:relative; overflow:hidden;
@@ -300,7 +296,7 @@
   .chip h4{ margin-bottom:6px; color:#fff; }
   .chip p{ color:rgba(255,255,255,.9); font-size:.95rem; }
 
-  /* =================== CONTACTO =================== */
+  /* ===== CONTACTO ===== */
   .gs-contact{ background:var(--fondo-muy-claro); }
   .contact-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; margin-top:24px; max-width:960px; margin-inline:auto; }
   .contact-card{
@@ -323,7 +319,7 @@
     border-radius:18px; text-align:center; box-shadow: var(--shadow-sm);
   }
 
-  /* =================== FOOTER =================== */
+  /* ===== FOOTER ===== */
   .gs-footer{
     background: linear-gradient(180deg, var(--verde-impacto-900) 0%, var(--verde-impacto-950) 100%);
     color:#fff; padding:58px 22px 36px; margin:0 -22px -22px;
@@ -340,11 +336,11 @@
   }
   .social a:hover{ background:var(--verde-organico); border-color:var(--verde-organico); transform:translateY(-2px); }
 
-  /* =================== REVEAL =================== */
+  /* ===== REVEAL ===== */
   .reveal{ opacity:0; transform:translateY(14px); transition: opacity .6s ease, transform .6s ease; }
   .reveal.is-visible{ opacity:1; transform:none; }
 
-  /* =================== RESPONSIVE =================== */
+  /* ===== RESPONSIVE ===== */
   @media (max-width: 1024px){
     .services-grid{ grid-template-columns:repeat(2,1fr); }
     .kpis{ grid-template-columns:1fr; max-width:520px; margin-inline:auto; }
@@ -359,7 +355,7 @@
     *{ transition:none !important; }
   }
 
-  /* ===== Fallback si el navegador NO soporta mix-blend-mode ===== */
+  /* ===== Fallback si no hay mix-blend-mode ===== */
   @supports not (mix-blend-mode: multiply){
     .gs-hero-bg::before{
       background: linear-gradient(135deg,
@@ -371,11 +367,14 @@
     }
     .gs-hero-bg::after{ display:none; }
   }
+
+  /* Seguridad: si quedara alguna clase vieja del separador, ocúltala */
+  .wave-sep{ display:none !important; }
   </style>
 </head>
 <body>
 
-<!-- =================== NAV =================== -->
+<!-- ===== NAV ===== -->
 <nav class="gs-topnav" role="navigation" aria-label="Menú principal">
   <div class="gs-topnav-inner gs-container">
     <a class="brand" href="#inicio">Green Solutions</a>
@@ -391,10 +390,10 @@
   </div>
 </nav>
 
-<!-- =================== HERO =================== -->
+<!-- ===== HERO (sin “mancha” blanca) ===== -->
 <header id="inicio" class="gs-header">
   <div class="gs-hero-bg" aria-hidden="true">
-    <!-- Reemplaza con tus IDs de Drive o assets locales -->
+    <!-- Sustituye los IDs por los tuyos o usa imágenes locales en /assets/img/ -->
     <img referrerpolicy="no-referrer" data-drive-id="101-TMmVzQSdmJ-Z9mSQPHP3quFGCNwrp" alt="" />
     <img referrerpolicy="no-referrer" data-drive-id="1amoLZ92OaAIwXVXmNzdFNS6vlHSYAuHa" alt="" />
     <img referrerpolicy="no-referrer" data-drive-id="15n6w-kvWBSw9QuyZTRES3Bw8DRcoEh4H" alt="" />
@@ -413,7 +412,7 @@
   </div>
 </header>
 
-<!-- =================== QUIÉNES SOMOS =================== -->
+<!-- ===== QUIÉNES SOMOS ===== -->
 <section class="gs-section gs-about" id="quienes">
   <div class="gs-container">
     <h2 class="gs-section-title reveal">Quiénes Somos</h2>
@@ -438,7 +437,7 @@
   </div>
 </section>
 
-<!-- =================== EQUIPO / HIGHLIGHTS =================== -->
+<!-- ===== EQUIPO / HIGHLIGHTS ===== -->
 <section class="gs-section gs-team">
   <div class="gs-container">
     <h2 class="gs-section-title reveal">Nuestro Equipo Consultor</h2>
@@ -461,7 +460,7 @@
   </div>
 </section>
 
-<!-- =================== SERVICIOS =================== -->
+<!-- ===== SERVICIOS ===== -->
 <section class="gs-section gs-services" id="servicios">
   <div class="gs-container">
     <h2 class="gs-section-title reveal">Nuestros Servicios</h2>
@@ -508,7 +507,7 @@
   </div>
 </section>
 
-<!-- =================== INSUMOS =================== -->
+<!-- ===== INSUMOS ===== -->
 <section class="gs-section gs-insumos" id="insumos">
   <div class="gs-container">
     <h2 class="gs-section-title reveal">Insumos Agrícolas</h2>
@@ -546,7 +545,7 @@
   </div>
 </section>
 
-<!-- =================== COBERTURA =================== -->
+<!-- ===== COBERTURA ===== -->
 <section class="gs-section gs-coverage" id="cobertura">
   <div class="gs-container">
     <h2 class="gs-section-title reveal">Cobertura Geográfica</h2>
@@ -559,7 +558,7 @@
   </div>
 </section>
 
-<!-- =================== CONTACTO =================== -->
+<!-- ===== CONTACTO ===== -->
 <section class="gs-section gs-contact" id="contacto">
   <div class="gs-container">
     <h2 class="gs-section-title reveal">Contáctanos</h2>
@@ -590,7 +589,7 @@
   </div>
 </section>
 
-<!-- =================== FOOTER =================== -->
+<!-- ===== FOOTER ===== -->
 <footer class="gs-footer" role="contentinfo">
   <div class="gs-container">
     <div class="foot-grid">
@@ -626,7 +625,7 @@
   </div>
 </footer>
 
-<!-- =================== SCRIPTS =================== -->
+<!-- ===== SCRIPTS ===== -->
 <script>
 /* Menú: toggle móvil + fondo al hacer scroll + enlace activo */
 (function(){
@@ -723,3 +722,4 @@
 </script>
 </body>
 </html>
+
